@@ -2536,8 +2536,8 @@ p {
   padding: 40px 20px 52px;
   background-color: #fff; }
   .single-features .features-title-icon .features-title a {
-    font-size: 36px;
-    line-height: 45px;
+    font-size: 24px;
+    line-height: 35px;
     color: #121212;
     -webkit-transition: all 0.3s ease-out 0s;
     -moz-transition: all 0.3s ease-out 0s;
@@ -2555,8 +2555,8 @@ p {
         line-height: 35px; } }
     @media only screen and (min-width: 576px) and (max-width: 767px) {
       .single-features .features-title-icon .features-title a {
-        font-size: 36px;
-        line-height: 45px; } }
+        font-size: 24px;
+        line-height: 35px; } }
     .single-features .features-title-icon .features-title a:hover {
       color: #0067f4; }
   .single-features .features-title-icon .features-icon {
