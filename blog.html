@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <!--====== Title ======-->
+    <title>NAYA Technology ID</title>
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--====== Favicon Icon ======-->
+    <link rel="shortcut icon" href="assets/images/favicon.png" type="image/png">
+
+    <!--====== Magnific Popup CSS ======-->
+    <!-- <link rel="stylesheet" href="assets/css/magnific-popup.css"> -->
+
+    <!--====== Slick CSS ======-->
+    <!-- <link rel="stylesheet" href="assets/css/slick.css"> -->
+
+    <!--====== Line Icons CSS ======-->
+    <!-- <link rel="stylesheet" href="assets/css/LineIcons.css"> -->
+
+    <!--====== Bootstrap CSS ======-->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+
+    <!--====== Default CSS ======-->
+    <link rel="stylesheet" href="assets/css/default.css">
+
+    <!--====== Style CSS ======-->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <style>
+        .nav-item a {
+            color: #495057 !important;
+        }
+
+        .nav-item a::before {
+            background: linear-gradient(to right, rgba(18, 18, 18, 0) 0%, #222 100%) !important;
+        }
+
+        .team-style-eleven .team-content .sub-title {
+            color: #495057 !important;
+        }
+        .team-style-eleven:hover .team-content .sub-title {
+          color: #eee !important;
+        }
+    </style>
+
+</head>
+
+<body>
+    <section class="navbar-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <nav class="navbar navbar-expand-lg">
+
+                        <a class="navbar-brand" href="/">
+                            <img src="assets/images/logo-circle.png" alt="NAYA Technology" width="15%" />
+                        </a>
+
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTwo"
+                            aria-controls="navbarTwo" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="toggler-icon"></span>
+                            <span class="toggler-icon"></span>
+                            <span class="toggler-icon"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse sub-menu-bar" id="navbarTwo">
+                            <ul class="navbar-nav m-auto">
+                                <li class="nav-item"><a class="page-scroll" href="/#home">Home</a></li>
+                                <li class="nav-item"><a class="page-scroll" href="/#solution">Solution</a></li>
+                                <li class="nav-item"><a class="page-scroll" href="/#training">Training</a></li>
+                                <li class="nav-item"><a class="page-scroll" href="/#team">Team</a></li>
+                                <li class="nav-item active"><a class="page-scroll" href="#">Blog</a></li>
+                            </ul>
+                        </div>
+
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="team" class="team-area pt-120 pb-130 px-5" style="background: #f4f6f7;">
+        <div class="container">
+            <div class="section-title text-center pb-10">
+                <h3 class="title">Blog</h3>
+                <p class="text">
+                    Tulisan-tulisan dari kami untuk semua orang yang dapat diakses dan disebarluaskan dengan bebas.
+                    Kami sertakan harapan agar semua tulisan ini dapat bermanfaat bagi setiap pembaca.
+                </p>
+            </div>
+        </div>
+        <div class="px-5">
+            <div class="row" id="content-wrapper">
+            </div>
+        </div>
+    </section>
+
+    <section class="footer-area footer-dark">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="footer-logo text-center">
+                        <a class="mt-30" href="/" style="width: 10%;"><img src="assets/images/logo-circle.png"
+                                alt="Logo"></a>
+                    </div>
+                    <div class="footer-support text-center">
+                        <span class="mail">nayatech.id@gmail.com</span>
+                    </div>
+                    <div class="copyright text-center mt-35">
+                        <p class="text">Built with &hearts; by <a href="https://nayatech.id" rel="nofollow">NAYA
+                                Technology</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--====== Jquery js ======-->
+    <script src="assets/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="assets/js/vendor/modernizr-3.7.1.min.js"></script>
+
+    <!--====== Bootstrap js ======-->
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+
+    <!--====== Slick js ======-->
+    <script src="assets/js/slick.min.js"></script>
+
+    <!--====== Magnific Popup js ======-->
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+
+    <!--====== Ajax Contact js ======-->
+    <script src="assets/js/ajax-contact.js"></script>
+
+    <!--====== Isotope js ======-->
+    <script src="assets/js/imagesloaded.pkgd.min.js"></script>
+    <script src="assets/js/isotope.pkgd.min.js"></script>
+
+    <!--====== Scrolling Nav js ======-->
+    <script src="assets/js/jquery.easing.min.js"></script>
+    <script src="assets/js/scrolling-nav.js"></script>
+
+    <!--====== Main js ======-->
+    <script src="assets/js/main.js"></script>
+    <script>
+        async function gql(query, variables = {}) {
+            const data = await fetch('https://api.hashnode.com/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    query,
+                    variables,
+                }),
+            });
+
+            return data.json();
+        }
+
+        const USERS = [
+            'born2ngopi',
+            'hadihammurabi',
+        ];
+        for (var i = 0; i < USERS.length; i++) {
+            const GET_USER_ARTICLES = `query {
+                    user(username: "${USERS[i]}") {
+                        publication {
+                            posts {
+                                title
+                                brief
+                                slug
+                                coverImage
+                            }
+                        }
+                    }
+                }`;
+            const articles = gql(GET_USER_ARTICLES).then(function (response) {
+                if (response.data != null
+                    && response.data.user != null
+                    && response.data.user.publication != null
+                    && response.data.user.publication.posts != null
+                    && response.data.user.publication.posts.length > 0
+                )
+                    for (var j = 0; j < response.data.user.publication.posts.length; j++) {
+                        var post = response.data.user.publication.posts[j];
+                        console.log(post);
+                        $('#content-wrapper').append(`
+                        <div class="col-lg-4 col-sm-6">
+                            <div class="team-style-eleven text-center mt-30">
+                                <div class="team-image" style="height: 30rem; background: url('${post.coverImage}'); background-repeat: norepeat; background-size: cover; background-position: center">
+                                    &nbsp;
+                                </div>
+                                    <img src="${post.coverImage}" alt="${post.title}" style="display: none">
+                                <div class="team-content px-3">
+                                    <div class="team-social">
+                                        <ul class="social">
+                                            <li><a href="" target="_blank">Selengkapnya</a></li>
+                                        </ul>
+                                    </div>
+                                    <h5 class="team-name text-left mb-3">
+                                        <a href="#" style="font-size: 1.1rem !important">${post.title}</a>
+                                    </h5>
+                                    <span class="sub-title text-left">${post.brief}</span>
+                                </div>
+                            </div>
+                        </div>
+                    `)
+                    }
+            });
+        }
+
+    </script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CQ3N52ZJ19"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-CQ3N52ZJ19');
+    </script>
+
+</body>
+
+</html>
