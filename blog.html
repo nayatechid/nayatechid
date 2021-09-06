@@ -164,12 +164,18 @@
         }
 
         const USERS = [
-            'born2ngopi',
-            'hadihammurabi',
+            {
+                hashnode: 'born2ngopi',
+                naya: 'chandra',
+            },
+            {
+                hashnode: 'hadihammurabi',
+                naya: 'hadihammurabi',
+            },
         ];
-        for (var i = 0; i < USERS.length; i++) {
+        for (let i = 0; i < USERS.length; i++) {
             const GET_USER_ARTICLES = `query {
-                    user(username: "${USERS[i]}") {
+                    user(username: "${USERS[i].hashnode}") {
                         publication {
                             posts {
                                 title
@@ -187,9 +193,8 @@
                     && response.data.user.publication.posts != null
                     && response.data.user.publication.posts.length > 0
                 )
-                    for (var j = 0; j < response.data.user.publication.posts.length; j++) {
+                    for (let j = 0; j < response.data.user.publication.posts.length; j++) {
                         var post = response.data.user.publication.posts[j];
-                        console.log(post);
                         $('#content-wrapper').append(`
                         <div class="col-lg-4 col-sm-6">
                             <div class="team-style-eleven text-center mt-30">
@@ -200,7 +205,7 @@
                                 <div class="team-content px-3">
                                     <div class="team-social">
                                         <ul class="social">
-                                            <li><a href="" target="_blank">Selengkapnya</a></li>
+                                            <li><a href="https://${USERS[i].naya}.nayatech.id/${post.slug}" target="_blank">Selengkapnya</a></li>
                                         </ul>
                                     </div>
                                     <h5 class="team-name text-left mb-3">
