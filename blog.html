@@ -156,19 +156,21 @@
     <!--====== Main js ======-->
     <script src="assets/js/main.js"></script>
     <script>
-        async function gql(query, variables = {}) {
-            const data = await fetch('https://api.hashnode.com/', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    query,
-                    variables,
-                }),
+        function gql(query, variables = {}) {
+            return new Promise(function (resolve, reject) {
+                fetch('https://api.hashnode.com/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        query,
+                        variables,
+                    }),
+                })
+                    .then(data => data.json())
+                    .then(resolve);
             });
-
-            return data.json();
         }
 
         const USERS = [
@@ -181,29 +183,74 @@
                 naya: 'hadihammurabi',
             },
         ];
-        for (let i = 0; i < USERS.length; i++) {
-            const GET_USER_ARTICLES = `query {
-                    user(username: "${USERS[i].hashnode}") {
-                        publication {
-                            posts {
-                                title
-                                brief
-                                slug
-                                coverImage
+        const articlePromises = USERS.map(function (user) {
+            return new Promise(function (resolve, reject) {
+                const GET_USER_ARTICLES = `query {
+                        user(username: "${user.hashnode}") {
+                            publication {
+                                posts {
+                                    title
+                                    brief
+                                    slug
+                                    coverImage
+                                    dateAdded
+                                }
                             }
                         }
+                    }`;
+                return gql(GET_USER_ARTICLES).then(function (response) {
+                    if (response.data != null
+                        && response.data.user != null
+                        && response.data.user != null
+                        && response.data.user.publication != null
+                        && response.data.user.publication.posts != null
+                        && response.data.user.publication.posts.length > 0
+
+                    ) {
+                        response.data.user.publication.posts = response.data.user.publication.posts.map(function(post) {
+                            return {
+                                ...post,
+                                user,
+                            };
+                        });
+                        resolve(response);
                     }
-                }`;
-            const articles = gql(GET_USER_ARTICLES).then(function (response) {
-                if (response.data != null
-                    && response.data.user != null
-                    && response.data.user.publication != null
-                    && response.data.user.publication.posts != null
-                    && response.data.user.publication.posts.length > 0
-                )
-                    for (let j = 0; j < response.data.user.publication.posts.length; j++) {
-                        var post = response.data.user.publication.posts[j];
-                        $('#content-wrapper').append(`
+                    reject('data is not complete');
+                });
+            });
+        });
+
+        Promise.allSettled(articlePromises)
+            .then(function (result) {
+                let posts = [];
+                result
+                    .filter(function (r) {
+                        return r.status === 'fulfilled';
+                    })
+                    .forEach(function (r) {
+                        if (r.value.data != null
+                            && r.value.data.user != null
+                            && r.value.data.user.publication != null
+                            && r.value.data.user.publication.posts != null
+                            && r.value.data.user.publication.posts.length > 0
+                        ) {
+                            for (let j = 0; j < r.value.data.user.publication.posts.length; j++) {
+                                posts.push(r.value.data.user.publication.posts[j]);
+                            }
+                        }
+                    });
+                return posts.sort(function (a, b) {
+                    let aDate = new Date(a.dateAdded);
+                    let bDate = new Date(b.dateAdded);
+                    if (aDate < bDate) return 1;
+                    if (aDate > bDate) return -1;
+                    return 0;
+                });
+            })
+            .then(function (posts) {
+                for (let j = 0; j < posts.length; j++) {
+                    let post = posts[j];
+                    $('#content-wrapper').append(`
                         <div class="col-lg-4 col-sm-6">
                             <div class="team-style-eleven text-center mt-30">
                                 <div class="team-image" style="height: 30rem; background: url('${post.coverImage}'); background-repeat: norepeat; background-size: cover; background-position: center">
@@ -213,7 +260,7 @@
                                 <div class="team-content px-3">
                                     <div class="team-social">
                                         <ul class="social">
-                                            <li><a href="https://${USERS[i].naya}.nayatech.id/${post.slug}" target="_blank">Selengkapnya</a></li>
+                                            <li><a href="https://${post.user.naya}.nayatech.id/${post.slug}" target="_blank">Selengkapnya</a></li>
                                         </ul>
                                     </div>
                                     <h5 class="team-name text-left mb-3">
@@ -223,11 +270,9 @@
                                 </div>
                             </div>
                         </div>
-                    `)
-                    }
+                    `);
+                }
             });
-        }
-
     </script>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
