@@ -25,7 +25,7 @@ app.get('/blog', async (req, reply) => {
   }
 });
 
-app.listen(8080, (err, address) => {
+app.listen(8080, '0.0.0.0', (err, address) => {
   if (err) throw err;
   console.log(`Server is now listening on ${address}`)
 })
