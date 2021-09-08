@@ -1,6 +1,7 @@
 const app = require('fastify')();
 const path = require('path');
 const service = require('./service');
+const minifier = require('html-minifier');
 
 app.register(require('fastify-static'), {
   root: path.join(__dirname, 'public'),
@@ -9,6 +10,17 @@ app.register(require('fastify-static'), {
 app.register(require('point-of-view'), {
   engine: {
     ejs: require('ejs'),
+  },
+  options: {
+    useHtmlMinifier: minifier,
+    htmlMinifierOptions: {
+      removeComments: true,
+      removeCommentsFromCDATA: true,
+      removeEmptyAttributes: true,
+      useShortDoctype: true,
+      minifyCSS: true,
+      collapseWhitespace: true, 
+    },
   },
 });
 
