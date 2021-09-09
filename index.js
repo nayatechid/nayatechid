@@ -19,7 +19,8 @@ app.register(require('point-of-view'), {
       removeEmptyAttributes: true,
       useShortDoctype: true,
       minifyCSS: true,
-      collapseWhitespace: true, 
+      minifyJS: true,
+      collapseWhitespace: true,
     },
   },
 });
