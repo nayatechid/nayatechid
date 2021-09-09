@@ -21,6 +21,10 @@ const USERS = [
     hashnode: 'hadihammurabi',
     naya: 'hadihammurabi',
   },
+  {
+    hashnode: 'nurkholis',
+    naya: 'kholis',
+  },
 ];
 
 const getAllPosts = async () => {
@@ -77,6 +81,11 @@ const getAllPosts = async () => {
     return 0;
   });
   return posts;
+  // return [
+  //   {
+  //     user: {},
+  //   },
+  // ];
 };
 
 module.exports = {
