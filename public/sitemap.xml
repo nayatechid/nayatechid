@@ -1,0 +1,14 @@
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://nayatech.id</loc>
+    <changefreq> daily </changefreq>
+    <priority> 1 </priority>
+    <lastmod>2021-09-06T10:28:54.489Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nayatech.id/blog</loc>
+    <changefreq> daily </changefreq>
+    <priority> 0.8 </priority>
+    <lastmod>2021-09-06T10:28:54.489Z</lastmod>
+  </url>
+</urlset>
