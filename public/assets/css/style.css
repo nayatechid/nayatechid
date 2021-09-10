@@ -19,7 +19,7 @@
 /*===========================
       01.COMMON css 
 ===========================*/
-@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800");
+@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800&display=swap");
 body {
   font-family: "Poppins", sans-serif;
   font-weight: normal;
@@ -1574,7 +1574,7 @@ p {
   @media (max-width: 767px) {
     .lg-btn {
       font-size: 16px;
-      ine-height: 52px; } }
+      line-height: 52px; } }
 
 .el-btn {
   line-height: 80px !important;
