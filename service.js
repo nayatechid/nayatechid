@@ -25,6 +25,10 @@ const USERS = [
     hashnode: 'nurkholis',
     naya: 'kholis',
   },
+  {
+    hashnode: 'hdinjos',
+    naya: 'fullsnackdev',
+  },
 ];
 
 const getAllPosts = async () => {
