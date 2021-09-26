@@ -1,0 +1,5 @@
+github.com/ngamux/middleware v0.0.0-20210926090158-ca269c3a06c0 h1:LTVbJwP9Y1W9+d1Gqwbmxe8LRKr58L7mMMQx2tfR7Vk=
+github.com/ngamux/middleware v0.0.0-20210926090158-ca269c3a06c0/go.mod h1:2Ferrm8pvudM0NfZOLzUt9ehPrx2NyBufwWLaOJxMts=
+github.com/ngamux/ngamux v1.0.1/go.mod h1:V6GvzXjgxd/sJn7vkhS+QRbHkvBbmyxd9caDFdtKXQo=
+github.com/ngamux/ngamux v1.0.3 h1:Ma+ACFidpETC5IYb4C9fR94+wMpOCAKvlGw4LG7DPpU=
+github.com/ngamux/ngamux v1.0.3/go.mod h1:V6GvzXjgxd/sJn7vkhS+QRbHkvBbmyxd9caDFdtKXQo=

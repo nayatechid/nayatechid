@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <!--====== Title ======-->
+    <title>Blog - NAYA Technology ID</title>
+
+    <meta name="description" content="Tulisan-tulisan oleh NAYA Technology ID">
+    <meta name=”robots” content="index, follow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta property="og:title" content="Blog - NAYA Technology ID" />
+    <meta property="og:description" content="Tulisan-tulisan oleh NAYA Technology ID." />
+    <meta property="og:url" content="https://nayatech.id/blog.html" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="https://nayatech.id/assets/images/logo-circle.png" />
+
+    <!--====== Favicon Icon ======-->
+    <link rel="shortcut icon" href="/public/assets/images/logo-circle.png" type="image/png">
+
+    <!--====== Magnific Popup CSS ======-->
+    <!-- <link rel="stylesheet" href="/public/assets/css/magnific-popup.css"> -->
+
+    <!--====== Slick CSS ======-->
+    <!-- <link rel="stylesheet" href="/public/assets/css/slick.css"> -->
+
+    <!--====== Line Icons CSS ======-->
+    <!-- <link rel="stylesheet" href="/public/assets/css/LineIcons.css"> -->
+    <link rel="preload" href="/public/assets/css/LineIcons.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+    <!--====== Bootstrap CSS ======-->
+    <!-- <link rel="stylesheet" href="/public/assets/css/bootstrap.min.css"> -->
+    <link rel="preload" href="/public/assets/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+    <!--====== Default CSS ======-->
+    <!-- <link rel="stylesheet" href="/public/assets/css/default.css"> -->
+    <link rel="preload" href="/public/assets/css/default.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+    <!--====== Style CSS ======-->
+    <!-- <link rel="stylesheet" href="/public/assets/css/style.css"> -->
+    <link rel="preload" href="/public/assets/css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+    <style>
+        .nav-item a {
+            color: #495057 !important;
+        }
+
+        .nav-item a::before {
+            background: linear-gradient(to right, rgba(18, 18, 18, 0) 0%, #222 100%) !important;
+        }
+
+        .team-style-eleven .team-content .sub-title {
+            color: #495057 !important;
+        }
+
+        .team-style-eleven:hover .team-content .sub-title {
+            color: #eee !important;
+        }
+    </style>
+  </head>
+
+  <body>
+    <section class="navbar-area">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <nav class="navbar navbar-expand-lg">
+
+              <a class="navbar-brand" href="/">
+                <img src="/public/assets/images/logo-circle.png" alt="NAYA Technology" width="15%" height="15%" />
+              </a>
+
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTwo"
+                aria-controls="navbarTwo" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="toggler-icon"></span>
+                <span class="toggler-icon"></span>
+                <span class="toggler-icon"></span>
+              </button>
+
+              <div class="collapse navbar-collapse sub-menu-bar" id="navbarTwo">
+                <ul class="navbar-nav m-auto">
+                  <li class="nav-item"><a class="page-scroll" href="/#home">Home</a></li>
+                  <li class="nav-item"><a class="page-scroll" href="/#solution">Solution</a></li>
+                  <li class="nav-item"><a class="page-scroll" href="/#training">Training</a></li>
+                  <li class="nav-item"><a class="page-scroll" href="/#team">Team</a></li>
+                  <li class="nav-item active"><a class="page-scroll" href="#">Blog</a></li>
+                </ul>
+              </div>
+
+            </nav>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="team" class="team-area pt-120 pb-130 px-3" style="background: #f4f6f7;">
+      <div class="container px-5 mb-3">
+        <div class="section-title text-center pb-10">
+          <h3 class="title">Blog</h3>
+          <p class="text">
+            Tulisan-tulisan dari kami untuk semua orang yang dapat diakses dan disebarluaskan dengan bebas.
+            Kami sertakan harapan agar semua tulisan ini dapat bermanfaat bagi setiap pembaca.
+          </p>
+        </div>
+      </div>
+      <div class="container-fluid">
+        <div class="row">
+          {{ range .Posts }}
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+              <div class="team-style-eleven text-center mt-30">
+                <div class="team-image"
+                  style="height: 30rem; background: url('{{ .CoverImage }}'); background-repeat: norepeat; background-size: cover; background-position: center; cursor: pointer;"
+                  onclick="window.open('https://{{ .UsernameNaya }}.nayatech.id/{{ .Slug }}')">
+                  &nbsp;
+                </div>
+                <div class="team-content px-3">
+                  <div class="team-social">
+                    <ul class="social">
+                      <li><a href="https://{{ .UsernameNaya }}.nayatech.id/{{ .Slug }}"
+                          target="_blank">Selengkapnya</a></li>
+                    </ul>
+                  </div>
+                  <h5 class="team-name text-left mb-3">
+                    <a href="https://{{ .UsernameNaya }}.nayatech.id/{{ .Slug }}"
+                      style="font-size: 1.1rem !important">
+                      {{ .Title }}
+                    </a>
+                  </h5>
+                  <span class="sub-title text-left">
+                    {{ .Brief }}
+                  </span>
+                </div>
+              </div>
+            </div>
+          {{ end }}
+        </div>
+      </div>
+    </section>
+
+    <section class="footer-area footer-dark pt-5 pb-5">
+      <div class="container-fluid">
+        <div class="row justify-content-center">
+          <div class="col-lg-4">
+            <div class="footer-logo text-center">
+              <a href="/" style="width: 10%;">
+                <img src="/public/assets/images/logo-circle.png" alt="NAYA Technology" width="100%" height="100%">
+              </a>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="copyright text-center mt-3">
+              <p class="text">
+                Built with <span class="text-danger" style="font-size: 1.5rem;">&hearts;</span> by
+                <a href="https://nayatech.id" rel="nofollow">NAYA Technology</a>
+              </p>
+            </div>
+          </div>
+          <div class="col">
+            <ul class="social text-center mt-3">
+              <li>
+                <a href="mailto:nayatech.id@gmail.com" target="_blank">
+                  <i class="lni lni-envelope"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- <div class="col-lg-11">
+                    <ul class="social text-center mt-60">
+                        <li><a href="https://facebook.com/"><i class="lni lni-facebook-filled"></i></a></li>
+                        <li><a href="https://twitter.com/"><i class="lni lni-twitter-original"></i></a></li>
+                        <li><a href="https://instagram.com/"><i class="lni lni-instagram-original"></i></a></li>
+                        <li><a href="#"><i class="lni lni-linkedin-original"></i></a></li>
+                    </ul>
+                </div> -->
+        </div>
+      </div>
+    </section>
+
+    <!--====== Jquery js ======-->
+    <script src="/public/assets/js/vendor/jquery-1.12.4.min.js"></script>
+    <script async src="/public/assets/js/vendor/modernizr-3.7.1.min.js"></script>
+
+    <!--====== Bootstrap js ======-->
+    <script async src="/public/assets/js/popper.min.js"></script>
+    <script async src="/public/assets/js/bootstrap.min.js"></script>
+
+    <!--====== Slick js ======-->
+    <script async src="/public/assets/js/slick.min.js"></script>
+
+    <!--====== Magnific Popup js ======-->
+    <script async src="/public/assets/js/jquery.magnific-popup.min.js"></script>
+
+    <!--====== Ajax Contact js ======-->
+    <script async src="/public/assets/js/ajax-contact.js"></script>
+
+    <!--====== Isotope js ======-->
+    <script async src="/public/assets/js/imagesloaded.pkgd.min.js"></script>
+    <script async src="/public/assets/js/isotope.pkgd.min.js"></script>
+
+    <!--====== Scrolling Nav js ======-->
+    <script async src="/public/assets/js/jquery.easing.min.js"></script>
+    <script async src="/public/assets/js/scrolling-nav.js"></script>
+
+    <!--====== Main js ======-->
+    <script async src="/public/assets/js/main.js"></script>
+
+    <!-- Google Analytics -->
+    <script>
+      window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) }; ga.l = +new Date;
+      ga('create', 'UA-206784300-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9719486614611875"
+      crossorigin="anonymous"></script>
+
+  </body>
+
+</html>
