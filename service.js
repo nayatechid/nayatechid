@@ -29,6 +29,10 @@ const USERS = [
     hashnode: 'hdinjos',
     naya: 'fullsnackdev',
   },
+  {
+    hashnode: 'yogahermawan',
+    naya: 'yogahermawan',
+  },
 ];
 
 const getAllPosts = async () => {
