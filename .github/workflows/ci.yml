@@ -47,5 +47,8 @@ jobs:
         host: ${{ secrets.SSH_HOST }}
         username: ${{ secrets.SSH_USERNAME }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
-        script: docker pull nayatechid/nayatechid; docker run -d --restart always --name nayatechid -p 48080:8080 nayatechid
+        script: |
+          docker pull nayatechid/nayatechid; |
+          docker rm -f nayatechid; |
+          docker run -d --restart always --name nayatechid -p 48080:8080 nayatechid
 
